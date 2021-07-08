@@ -1,0 +1,89 @@
+<DOCTYPE html>
+<html>
+	<head>
+		<title>Homework 1-1</title>
+		<link rel="stylesheet" href="homework-1-1.css">
+	</head>
+	<body>
+			<h1>Create Playlist</h1>
+			
+		<form>
+			<label for="title_text" class="title">Title: </label>
+			<input type="text" id="title" name="title_text" class="'input_title"><br>
+			<label for="description_text" class="description">Description:</label>
+			<input type="text" id="description" name="description_text" class="input_description"><br>
+			<input type="submit" value="submit" class="inputSubmit" onclick='myFunction()'> 
+		</form>
+
+
+
+		</div>
+		<div class="contents">
+			<img src="lauriel.jpg" alt="#" width="410px" height="500px">
+			<div class="contents-list">
+				<p class="text">Track Title</p>
+				<p class="text">Artists</p>
+				<p class="text">Albums</p>
+			<input type="button" value="select">
+		</div>
+		</div>
+		<script>
+			function myFunction() {
+				alert("I am an alert box!");
+			}
+
+			//menggunakan Promise
+
+
+			// const getTodoFetch = () => {
+			// 	fetch('https://gist.githubusercontent.com/aryapradipta9/e6492383477803b233916e01f36d5465/raw/66942c739d66d3774303f84071696aa865a07077/single-sample.json')
+			// 	.then((response) => {
+
+			// 		if(!response.ok) {
+			// 			return promise.reject("Data Error");	
+			// 		}
+
+			// 		console.log("status ok", response);
+			// 		return response.json();
+			// 	})
+			// 	.then((data) => {
+			// 		console.log("resolved:", data);
+			// 	})
+
+			// 	.catch((err) => {
+			// 		console.log("rejected:", err);
+			// 	});
+			// };
+			// getTodoFetch();
+
+
+
+			//menggunakan Promise dan async
+
+
+			const getTodoAsyncAwait = async (resource) => {
+				const response = await fetch(resource);
+				const data = await response.json();
+			
+
+
+			if (!response.ok) {
+				throw new Error("Cannot fetch data");
+			}
+
+			return data;
+			};
+
+
+			//menggunakan Promises
+
+			getTodoAsyncAwait("https://gist.githubusercontent.com/aryapradipta9/e6492383477803b233916e01f36d5465/raw/66942c739d66d3774303f84071696aa865a07077/single-sample.json")
+			.then(data => console.log('resolved:', data))
+			.catch(err => console.log('rejected',err.message));
+
+
+
+
+		</script>
+	</body>
+</html>

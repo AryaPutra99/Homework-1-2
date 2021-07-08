@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Hands on </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="hands-on.css">
+	</head>
+	<body>
+		<table id="table-student">
+			<tr>
+				<td>name</td>
+				<td>age</td>
+			</tr>
+		</table>
+
+		<button onClick="calculatedStudents()"> 
+		Calculate
+		</button>
+
+		<script>
+			const students = [
+				{ name:"Alice", age: 20 },
+				{ name:"Bob", age: 21 },
+				{ name:"Jane", age: 20 },
+			];
+			const tableDom = document.getElementById("table-student");
+			students.forEach((student, idx) => {
+				let row = tableDom.insertRow(idx + 1);
+				let studentCell = row.insertCell(0);
+				studentCell.innerHTML = student.name;
+				let ageCell = row.insertCell(1);
+				ageCell.innerHTML = student.age;
+			});
+
+
+
+
+			// get Average Age
+			const averageAge = (students) => {
+				const totalAge = students.reduce((acc, { age }) => acc + age , 0);
+
+
+				return totalAge / students.length;
+
+
+			}
+
+			function calculatedStudents() {
+				age = averageAge(students);
+				console.log(age)
+
+			}
+
+
+
+
+
+
+
+			const callAPI = (time, message) => {
+				return new promise((resolve) => {
+					console.log(message);
+					setTimeOut(resolve, time);
+				});
+
+
+
+				callAPI(5000, "start calculation").then(() =>{
+					const ages = getStudentsAges();
+					console.log(calcAvgAge(ages));
+				});
+
+				callAPI(2000, "Second Start")
+				.then(() => console.log("Second Finish"))
+				.then(() => callAPI(5000, "third start"))
+				.then(() => console.log("third Finish"));
+
+			}
+
+
+
+		</script>
+	</body>
+</html>
